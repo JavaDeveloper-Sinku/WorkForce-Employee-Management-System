@@ -1,41 +1,78 @@
-# 👥 Employee Management System
+# 👨‍💼 Employee Management System
 
-A comprehensive **Spring Boot** backend system for managing employee records, departments, salaries, and generating background reports. This enterprise-level application demonstrates best practices in RESTful API design, database management, and business logic implementation.
+A production-ready **Employee Management System** built using **Java 21, Spring Boot, Spring Security, JWT Authentication, MySQL, Redis, Docker, and REST APIs**.
 
+This project demonstrates enterprise backend development practices, including secure authentication and authorization, role-based access control (RBAC), Redis caching, DTO mapping, global exception handling, pagination, and containerized deployment. It follows a clean layered architecture to build scalable and maintainable RESTful services.
 ---
+
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=springboot)
+![Spring Security](https://img.shields.io/badge/Spring_Security-6.x-6DB33F?style=for-the-badge&logo=springsecurity)
+![JWT](https://img.shields.io/badge/JWT-Authentication-black?style=for-the-badge&logo=jsonwebtokens)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql)
+![Redis](https://img.shields.io/badge/Redis-Cache-DC382D?style=for-the-badge&logo=redis)
+![Docker](https://img.shields.io/badge/Docker-Container-2496ED?style=for-the-badge&logo=docker)
+![Maven](https://img.shields.io/badge/Maven-Build-C71A36?style=for-the-badge&logo=apachemaven)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
 
 ## ✨ Features
 
-✅ **Employee Management** – Create, read, update, and delete employee records  
-✅ **Department Management** – Organize employees by departments  
-✅ **Salary & Compensation** – Track employee salaries and benefits  
-✅ **Background Report Generation** – Generate detailed employee background reports  
-✅ **Search & Filter** – Advanced search and filtering capabilities  
-✅ **RESTful APIs** – Clean and well-structured REST endpoints  
-✅ **Data Validation** – Comprehensive input validation  
-✅ **Error Handling** – Robust exception handling and error responses  
-✅ **H2 Database** – In-memory database for quick testing and development  
-✅ **JPA/Hibernate** – Object-relational mapping for database operations  
-✅ **Lombok** – Reduce boilerplate code with annotations  
-✅ **Testing Ready** – Unit and integration test support  
+### 🔐 Authentication & Security
+- JWT Access Token Authentication
+- Refresh Token Authentication
+- Secure Login & Logout
+- Role-Based Access Control (RBAC)
+- Password Encryption using BCrypt
+- Spring Security Integration
 
----
+### 👨‍💼 Employee Management
+- Create, Read, Update, and Delete (CRUD) Employees
+- Search Employees
+- Pagination & Sorting
+- Input Validation
+- DTO-Based Request & Response Handling
+
+### 🏢 Department Management
+- Department CRUD Operations
+- Employee-Department Relationship Management
+
+### ⚡ Performance
+- Redis Caching for Frequently Accessed Data
+- Optimized Database Queries
+
+### 🛠️ Backend Engineering
+- RESTful API Design
+- Layered Architecture (Controller → Service → Repository)
+- Global Exception Handling
+- Centralized API Response Structure
+- MySQL Database Integration
+- Docker Support
 
 ## 🛠️ Tech Stack
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| **Java** | 17+ | Backend programming language |
-| **Spring Boot** | 4.0.1 | Web framework and application server |
-| **Spring Data JPA** | Latest | ORM and database abstraction layer |
-| **Hibernate** | Latest | Object-relational mapping |
-| **H2 Database** | Latest | In-memory relational database |
-| **Spring Web MVC** | Latest | RESTful API development |
-| **Lombok** | Latest | Reduce boilerplate code |
-| **Maven** | 3.6+ | Build and dependency management |
-| **JUnit** | Latest | Unit testing framework |
+| Category | Technologies |
+|----------|--------------|
+| **Language** | Java 21 |
+| **Framework** | Spring Boot 3.x |
+| **Security** | Spring Security, JWT Authentication |
+| **Database** | MySQL |
+| **Caching** | Redis |
+| **ORM** | Spring Data JPA, Hibernate |
+| **Build Tool** | Maven |
+| **Containerization** | Docker, Docker Compose |
+| **Utilities** | Lombok, Validation API |
+| **API Testing** | Postman |
+| **Version Control** | Git, GitHub |
 
----
+
+### 💻 Technologies Used
+
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=java,spring,mysql,redis,docker,git,github,maven,idea,postman" />
+</p>
+
+
 
 ## 📁 Project Structure
 
