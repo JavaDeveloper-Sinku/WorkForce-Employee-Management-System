@@ -1,13 +1,13 @@
 <h1 align="center">
-  👨‍💼 Employee Management System
+  🚀 WorkForce
 </h1>
 
 <h3 align="center">
-  Enterprise Backend Application built with Java, Spring Boot, JWT Authentication, Redis, MySQL, and Docker
+  Enterprise Employee Management System
 </h3>
 
 <p align="center">
-A production-ready Employee Management System demonstrating secure authentication, role-based authorization, RESTful API development, Redis caching, and containerized deployment using modern Spring Boot practices.
+A production-ready <strong>Employee Management System</strong> built with <strong>Java 21</strong>, <strong>Spring Boot</strong>, <strong>Spring Security</strong>, <strong>JWT Authentication</strong>, <strong>MySQL</strong>, <strong>Redis</strong>, and <strong>Docker</strong>. The application provides secure authentication, role-based access control (RBAC), employee and department management, RESTful APIs, Redis caching, and a scalable layered architecture following enterprise backend development best practices.
 </p>
 
 <p align="center">
