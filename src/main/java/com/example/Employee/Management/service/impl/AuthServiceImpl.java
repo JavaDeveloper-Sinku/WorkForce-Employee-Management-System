@@ -4,6 +4,7 @@ import com.example.Employee.Management.dto.request.LoginRequest;
 import com.example.Employee.Management.dto.request.RefreshTokenRequest;
 import com.example.Employee.Management.dto.request.RegisterRequest;
 import com.example.Employee.Management.dto.response.AuthResponse;
+import com.example.Employee.Management.dto.response.UserMeResponse;
 import com.example.Employee.Management.entity.RefreshToken;
 import com.example.Employee.Management.entity.Role;
 import com.example.Employee.Management.entity.User;
@@ -105,5 +106,27 @@ public class AuthServiceImpl implements AuthService {
         User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
 
         refreshTokenService.deleteRefreshToken(user);
+    }
+
+    @Override
+    public UserMeResponse getCurrentUser(String email) {
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() ->
+                        new RuntimeException("User not found")
+                );
+
+        Long employeeId = null;
+
+        if (user.getEmployee() != null) {
+            employeeId = user.getEmployee().getId();
+        }
+
+        return UserMeResponse.builder()
+                .username(user.getUsername())
+                .email(user.getEmail())
+                .role(user.getRole().getName().name())
+                .employeeId(employeeId)
+                .build();
     }
 }

@@ -3,6 +3,9 @@ package com.example.Employee.Management.service.impl;
 import com.example.Employee.Management.dto.request.EmployeeRequest;
 import com.example.Employee.Management.dto.response.EmployeeResponse;
 import com.example.Employee.Management.entity.Employee;
+import com.example.Employee.Management.entity.Role;
+import com.example.Employee.Management.entity.User;
+import com.example.Employee.Management.enums.RoleType;
 import com.example.Employee.Management.exception.DuplicateResourceException;
 import com.example.Employee.Management.exception.ResourceNotFoundException;
 
@@ -10,14 +13,18 @@ import com.example.Employee.Management.exception.ResourceNotFoundException;
 import com.example.Employee.Management.repository.EmployeeRepository;
 
 
+import com.example.Employee.Management.repository.RoleRepository;
+import com.example.Employee.Management.repository.UserRepository;
 import com.example.Employee.Management.service.EmployeeService;
 import com.example.Employee.Management.specification.EmployeeSpecification;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,24 +34,62 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
 
 
+
+    @Transactional
     @Override
     public EmployeeResponse createEmployee(EmployeeRequest request) {
 
-        if(employeeRepository.existsByEmail(request.getEmail())){
-            throw new DuplicateResourceException( "Employee already exists with this email");
+        // Check employee email
+        if (employeeRepository.existsByEmail(request.getEmail())) {
+            throw new DuplicateResourceException(
+                    "Employee already exists with this email"
+            );
         }
 
-        Employee employee = Employee.builder()
 
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new DuplicateResourceException(
+                    "User already exists with this email"
+            );
+        }
+
+        // Find EMPLOYEE role
+        Role employeeRole = roleRepository
+                .findByName(RoleType.EMPLOYEE)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "EMPLOYEE role not found"
+                        )
+                );
+
+        // Create User account
+        User user = User.builder()
+                .username(request.getEmail())
+                .email(request.getEmail())
+                .password(
+                        passwordEncoder.encode(request.getPassword())
+                )
+                .role(employeeRole)
+                .enabled(true)
+                .build();
+
+        // Save User first
+        User savedUser = userRepository.save(user);
+
+        // Create Employee
+        Employee employee = Employee.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .phone(request.getPhone())
                 .department(request.getDepartment())
                 .salary(request.getSalary())
-
+                .user(savedUser)
                 .build();
 
         Employee savedEmployee = employeeRepository.save(employee);

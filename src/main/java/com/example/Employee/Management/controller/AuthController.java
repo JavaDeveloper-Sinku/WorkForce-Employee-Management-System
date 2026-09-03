@@ -5,13 +5,18 @@ import com.example.Employee.Management.dto.request.RefreshTokenRequest;
 import com.example.Employee.Management.dto.request.RegisterRequest;
 import com.example.Employee.Management.dto.response.ApiResponse;
 import com.example.Employee.Management.dto.response.AuthResponse;
+import com.example.Employee.Management.dto.response.UserMeResponse;
 import com.example.Employee.Management.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -90,9 +95,19 @@ public class AuthController {
     }
 
     @GetMapping("/me")
-    public ResponseEntity<?> me(Authentication authentication) {
+    public ResponseEntity<ApiResponse<UserMeResponse>> me(
+            Authentication authentication
+    ) {
+        UserMeResponse response = authService.getCurrentUser(
+                authentication.getName()
+        );
+
         return ResponseEntity.ok(
-                authentication.getAuthorities()
+                ApiResponse.<UserMeResponse>builder()
+                        .success(true)
+                        .message("User fetched successfully")
+                        .data(response)
+                        .build()
         );
     }
 }

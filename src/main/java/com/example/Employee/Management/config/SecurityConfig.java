@@ -36,6 +36,7 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(cors ->{})
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
                                 SessionCreationPolicy.STATELESS
@@ -58,12 +59,19 @@ public class SecurityConfig {
                                 "/v3/api-docs/**")
                         .permitAll()
 
+
+
                         // Protected APIs
                         .requestMatchers("/api/auth/register")
                         .authenticated()
 
                         .requestMatchers("/api/employees/**")
                         .authenticated()
+
+
+                        .requestMatchers("/api/dashboard/**")
+                        .authenticated()
+
 
 
                         .anyRequest()

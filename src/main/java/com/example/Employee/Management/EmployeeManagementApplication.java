@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class EmployeeManagementApplication {
 
 	public static void main(String[] args) {
-        SpringApplication.run(EmployeeManagementApplication.class, args);
+
+		SpringApplication.run(EmployeeManagementApplication.class, args);
 	}
 
 }

@@ -32,5 +32,9 @@ public class Employee extends BaseEntity{
 
     private Double salary;
 
+    @OneToOne
+    @JoinColumn(name = "user_id", unique = true)
+    private User user;
+
 
 }
