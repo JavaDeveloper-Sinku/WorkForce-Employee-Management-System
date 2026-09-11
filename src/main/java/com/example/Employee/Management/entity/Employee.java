@@ -1,11 +1,12 @@
 package com.example.Employee.Management.entity;
 
+import com.example.Employee.Management.enums.EmployeeStatus;
+import com.example.Employee.Management.enums.EmploymentType;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
-
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
@@ -14,8 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class Employee extends BaseEntity{
-
+public class Employee extends BaseEntity {
 
     @Column(nullable = false)
     private String firstName;
@@ -28,13 +28,30 @@ public class Employee extends BaseEntity{
 
     private String phone;
 
+    @Column(nullable = false, unique = true)
+    private String employeeCode;
+
+    @Column(nullable = false)
     private String department;
 
+    @Column(nullable = false)
+    private String designation;
+
+    @Column(nullable = false)
+    private LocalDate joiningDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private EmploymentType employmentType;
+
+    @Column(nullable = false)
     private Double salary;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private EmployeeStatus status;
 
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
     private User user;
-
-
 }

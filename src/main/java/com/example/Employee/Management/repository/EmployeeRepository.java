@@ -23,4 +23,8 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long>, JpaSpe
             Pageable pageable
     );
 
+
+
+    boolean existsByEmployeeCode(String employeeCode);
+
 }

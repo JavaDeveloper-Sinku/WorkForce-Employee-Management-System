@@ -3,6 +3,7 @@ package com.example.Employee.Management.controller;
 import com.example.Employee.Management.dto.request.EmployeeRequest;
 import com.example.Employee.Management.dto.response.ApiResponse;
 import com.example.Employee.Management.dto.response.EmployeeResponse;
+import com.example.Employee.Management.enums.EmployeeStatus;
 import com.example.Employee.Management.service.EmployeeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -200,4 +201,26 @@ public class EmployeeController {
                         .build()
         );
     }
+
+
+
+    @PatchMapping("/{id}/status")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ApiResponse<EmployeeResponse>> updateEmployeeStatus(
+            @PathVariable Long id,
+            @RequestParam EmployeeStatus status
+    ) {
+        EmployeeResponse employee =
+                employeeService.updateEmployeeStatus(id, status);
+
+        return ResponseEntity.ok(
+                ApiResponse.<EmployeeResponse>builder()
+                        .success(true)
+                        .message("Employee status updated successfully")
+                        .data(employee)
+                        .build()
+        );
+    }
 }
+
+

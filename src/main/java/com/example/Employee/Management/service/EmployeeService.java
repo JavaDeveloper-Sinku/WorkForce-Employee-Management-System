@@ -2,6 +2,7 @@ package com.example.Employee.Management.service;
 
 import com.example.Employee.Management.dto.request.EmployeeRequest;
 import com.example.Employee.Management.dto.response.EmployeeResponse;
+import com.example.Employee.Management.enums.EmployeeStatus;
 import org.springframework.data.domain.Page;
 
 
@@ -11,15 +12,12 @@ public interface EmployeeService {
 
     EmployeeResponse createEmployee(EmployeeRequest request);
 
-
     Page<EmployeeResponse> getAllEmployees(
             int page,
             int size,
             String sortBy,
             String sortDir
-
     );
-
 
     Page<EmployeeResponse> searchEmployees(
             String keyword,
@@ -30,7 +28,6 @@ public interface EmployeeService {
     );
 
     Page<EmployeeResponse> filterEmployees(
-
             String department,
             Double minSalary,
             Double maxSalary,
@@ -40,11 +37,15 @@ public interface EmployeeService {
             String sortDir
     );
 
-
-
     EmployeeResponse getEmployeeById(Long id);
 
     EmployeeResponse updateEmployee(Long id, EmployeeRequest request);
 
     void deleteEmployee(Long id);
+
+
+    EmployeeResponse updateEmployeeStatus(
+            Long id,
+            EmployeeStatus status
+    );
 }
