@@ -1,5 +1,5 @@
 <h1 align="center">
-  🚀 WorkForce
+  💼 WorkForce
 </h1>
 
 <h3 align="center">
@@ -32,35 +32,7 @@ A production-ready <strong>Employee Management System</strong> built with <stron
 </p>
 
 ---
-
-# 📚 Table of Contents
-
-- About the Project
-- Features
-- Tech Stack
-- Project Architecture
-- Project Structure
-- Getting Started
-- Environment Variables
-- Authentication Flow
-- API Endpoints
-- Redis Cache
-- Docker Setup
-- Screenshots
-- Future Improvements
-- Author
-
----
-
-# 📖 About the Project
-
-The **Employee Management System** is a production-ready backend application designed to manage employees, departments, authentication, and authorization in a secure and scalable environment.
-
-The project is built using **Java 21**, **Spring Boot**, **Spring Security**, **JWT Authentication**, **MySQL**, **Redis**, and **Docker**, following enterprise-level backend development practices.
-
-It implements a clean layered architecture with RESTful APIs, Role-Based Access Control (RBAC), Redis caching, DTO mapping, global exception handling, request validation, and secure authentication using Access & Refresh Tokens.
-
-This project demonstrates how modern Spring Boot applications are structured for real-world enterprise systems with a strong focus on scalability, maintainability, security, and performance.
+<img width="3354" height="1636" alt="emsd_dashboard_1" src="https://github.com/user-attachments/assets/d828388c-445c-44fa-9865-aaca2eeb16d8" />
 
 ---
 
@@ -106,22 +78,6 @@ This project demonstrates how modern Spring Boot applications are structured for
 
 # 🛠 Tech Stack
 
-| Category | Technology |
-|-----------|------------|
-| Language | Java 21 |
-| Framework | Spring Boot |
-| Security | Spring Security, JWT |
-| Database | MySQL |
-| Cache | Redis |
-| ORM | Spring Data JPA, Hibernate |
-| Build Tool | Maven |
-| Containerization | Docker, Docker Compose |
-| Validation | Jakarta Validation |
-| API Testing | Postman |
-| Version Control | Git & GitHub |
-
-<br>
-
 <p align="center">
 <img src="https://skillicons.dev/icons?i=java,spring,mysql,redis,docker,maven,git,github,idea,postman"/>
 </p>
@@ -155,29 +111,6 @@ The project follows a layered architecture.
 ```
 
 ---
-
-## 📌 Request Flow
-
-1. Client sends request
-
-2. Spring Security intercepts request
-
-3. JWT Token validation
-
-4. Controller
-
-5. Service Layer
-
-6. Repository Layer
-
-7. MySQL Database
-
-8. Redis Cache
-
-9. API Response
-
----
-
 # 📁 Project Structure
 
 ```text
@@ -305,52 +238,6 @@ server.port=8080
 
 ---
 
-# 🔐 Authentication Flow
-
-The application uses **Spring Security** with **JWT Authentication** and **Refresh Tokens**.
-
-```text
-               User Login
-                    │
-                    ▼
-         Email & Password
-                    │
-                    ▼
- Spring Security Authentication
-                    │
-                    ▼
-Generate Access Token + Refresh Token
-                    │
-                    ▼
- Store Tokens on Client
-                    │
-                    ▼
- Protected REST APIs
-                    │
-                    ▼
- JWT Filter Validation
-                    │
-                    ▼
- Controller → Service → Repository
-                    │
-                    ▼
-           MySQL / Redis
-                    │
-                    ▼
-             API Response
-```
-
-### Authentication Features
-
-- JWT Authentication
-- Refresh Tokens
-- Secure Login
-- Secure Logout
-- BCrypt Password Encryption
-- Stateless Authentication
-- Role-Based Access Control (RBAC)
-
----
 
 # 📡 API Endpoints
 
@@ -476,72 +363,9 @@ docker ps
  Spring Boot       MySQL          Redis
  Application      Database         Cache
 ```
-
 ---
 
-# 📸 Screenshots
-
-## 🔐 Login API
-
-```
-screenshots/login-api.png
-```
-
----
-
-## 👨‍💼 Employee CRUD
-
-```
-screenshots/employee-crud.png
-```
-
----
-
-## 📖 Swagger UI
-
-```
-screenshots/swagger-ui.png
-```
-
----
-
-## ⚡ Redis Cache
-
-```
-screenshots/redis-cache.png
-```
-
----
-
-## 🐳 Docker
-
-```
-screenshots/docker-containers.png
-```
-
----
-
-## 🗄️ MySQL Database
-
-```
-screenshots/mysql-database.png
-```
-
----
-
-# 🚀 Future Improvements
-
-- Email Notifications
-- Audit Logs
-- File Upload Support
-- Elasticsearch Integration
-- CI/CD Pipeline
-- Kubernetes Deployment
-- Monitoring with Prometheus & Grafana
-
----
-
-# 👨‍💻 Author
+# 👨‍💻 Owner
 
 **Sinku Singh**
 
@@ -580,17 +404,3 @@ git push origin feature/new-feature
 5. Open a Pull Request.
 
 ---
-
-# 📄 License
-
-This project is licensed under the **MIT License**.
-
----
-
-<div align="center">
-
-⭐ If you found this project helpful, please consider giving it a **Star** on GitHub!
-
-Made with ❤️ by **Sinku Singh**
-
-</div>
