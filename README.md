@@ -7,7 +7,7 @@
 </h3>
 
 <p align="center">
-A production-ready <strong>Employee Management System</strong> built with <strong>Java 21</strong>, <strong>Spring Boot</strong>, <strong>Spring Security</strong>, <strong>JWT Authentication</strong>, <strong>MySQL</strong>, <strong>Redis</strong>, and <strong>Docker</strong>. The application provides secure authentication, role-based access control (RBAC), employee and department management, RESTful APIs, Redis caching, and a scalable layered architecture following enterprise backend development best practices.
+<strong>Employee Management System</strong> built with <strong>Java 21</strong>, <strong>Spring Boot</strong>, <strong>Spring Security</strong>, <strong>JWT Authentication</strong>, <strong>MySQL</strong>, <strong>Redis</strong>, and <strong>Docker</strong>. The application provides secure authentication, role-based access control (RBAC), Scalable layered architecture for backend development.
 </p>
 
 <p align="center">
