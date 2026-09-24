@@ -19,7 +19,8 @@ public class CorsConfig {
 
         // Frontend
         configuration.setAllowedOrigins(
-                List.of("http://localhost:3000")
+                List.of("http://localhost:3000",
+                        "https://workforce-employee-management.vercel.app/")
         );
 
         // HTTP Methods
