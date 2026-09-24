@@ -24,7 +24,7 @@ jobs:
           cache: maven
 
       - name: Run tests
-        run: mvn test
+        run: mvn test -Dspring.profiles.active=test
 
       - name: Build project
-        run: mvn package
+        run: mvn package -Dspring.profiles.active=test
